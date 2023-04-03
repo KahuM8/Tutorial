@@ -61,7 +61,7 @@ public class LamdaPrac implements myInterface {
 
         parameterInterface parameterInterface = (int x, int y) -> { // set the method
             for (int i = 0; i < 20; i++) {
-                pointList.add(new Point(x, y));
+                pointList.add(new Point(x + i, y - i));
                 System.out.println("point made at " + x + ", " + y + " " + i);
             }
         };
