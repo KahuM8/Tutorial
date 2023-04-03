@@ -12,6 +12,10 @@ public class LamdaPrac implements myInterface {
         System.out.println("This is my method");
     }
 
+    // this is the normal way that you would implement a default method
+
+
+
     public void methodTakesObject(otherInterface i) {
         System.out.println("I know that this dosent need to take anything but it does");
 
@@ -33,7 +37,9 @@ public class LamdaPrac implements myInterface {
 
         // this is the lambda way of implementing an interface
 
-        myInterface myInterface = () -> System.out.println("This is my method!!!!!"); // this is the
+        myInterface myInt = () -> System.out.println("This is my method!!!!!!"); // set the method
+        myInt.myMethod(); // call the method
+
         // lambda
         // expression
         // we infrence that the method is from the interface because we are using the interface as
@@ -53,12 +59,17 @@ public class LamdaPrac implements myInterface {
 
         // you can also use a lambda to do multiple lines of code for your method
 
-        parameterInterface parameterInterface = (int x, int y) -> {
+        parameterInterface parameterInterface = (int x, int y) -> { // set the method
             for (int i = 0; i < 20; i++) {
                 pointList.add(new Point(x, y));
                 System.out.println("point made at " + x + ", " + y + " " + i);
             }
         };
+        parameterInterface.myMethod(5, 5); // call the method
+        // check the list
+        System.out.println(pointList);
+
+
         // now because these are intefaces we cant actually use these objects that we have create.
         // however objects that implement these interfces are more useful
 
@@ -75,9 +86,11 @@ public class LamdaPrac implements myInterface {
         // eg
 
         LamdaPrac p = new LamdaPrac();
-        p.methodTakesObject(i -> System.out.println("This is a lambda function"));
+        p.methodTakesObject(i -> new Point(0, 0));
         // as you can see the method takes an object that implements the otherInterface interface
         // but we can make it do whatever we want by passing in a lambda function
+        // the functionality does not need to make scence. it just needs to be an object that
+        // implements the interface
 
 
 
